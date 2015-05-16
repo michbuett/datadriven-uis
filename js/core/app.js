@@ -6,7 +6,12 @@ module.exports = function (alchemy) {
         'alchemy.ecs.EventSystem',
         'alchemy.ecs.VDomRenderSystem',
         'alchemy.ecs.CssRenderSystem',
-        'alchemy.ecs.LastStateSystem',
+    ];
+
+    var entityTypes = [
+        'core.entities.Viewport',
+        'core.entities.SlidesContainer',
+        'core.entities.NavButton',
     ];
 
     /**
@@ -14,29 +19,34 @@ module.exports = function (alchemy) {
      * @name core.app
      * @extends alchemy.web.Applicatus
      */
-    alchemy.formula.add({
-        name: 'core.app',
-        extend: 'alchemy.web.Applicatus',
+    alchemy.formula.define('core.app', [
+        'alchemy.web.Applicatus',
+        'alchemy.ecs.Administrator',
+        'alchemy.ecs.Apothecarius',
+        'alchemy.web.Delegatus',
+        'core.controller.Navigation',
 
-        requires: [
-            'alchemy.ecs.Administrator',
-            'alchemy.ecs.Apothecarius',
-            'alchemy.web.Delegatus',
-        ].concat(systems),
+    ].concat(systems, entityTypes), function (
 
-    }, function (_super) {
-        return {
+        Applicatus,
+        Administrator,
+        Apothecarius,
+        Delegatus,
+        Navigation
+    ) {
+
+        return alchemy.extend(Applicatus, {
             /** @lends core.app.prototype */
 
+            /** @override */
             constructor: function (cfg) {
-
-                this.entityAdmin = alchemy('alchemy.ecs.Administrator').brew({
-                    repo: alchemy('alchemy.ecs.Apothecarius').brew(),
+                this.entityAdmin = Administrator.brew({
+                    repo: Apothecarius.brew(),
                 });
 
-                this.delegator = alchemy('alchemy.web.Delegatus').brew();
+                this.delegator = Delegatus.brew();
 
-                _super.constructor.call(this, cfg);
+                Applicatus.constructor.call(this, cfg);
 
                 alchemy.each(systems, function (name) {
                     this.entityAdmin.addSystem(alchemy(name).brew({
@@ -44,12 +54,22 @@ module.exports = function (alchemy) {
                         messages: this.messages,
                     }));
                 }, this);
+
+                this.wireUp(Navigation.brew());
+
+                alchemy.each(entityTypes, function (name) {
+                    this.entityAdmin.setEntityDefaults(name, alchemy(name));
+                }, this);
+
+                this.entityAdmin.initEntities([{
+                    type: 'core.entities.Viewport'
+                }]);
             },
 
             /** @override */
             update: function (p) {
                 this.entityAdmin.update(p.state);
             },
-        };
+        });
     });
 };
