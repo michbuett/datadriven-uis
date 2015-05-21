@@ -23,50 +23,66 @@ module.exports = function (alchemy) {
                 renderer: renderDynamicCss
             },
 
-            children: alchemy.mix(alchemy.each({
-                btnPrevStep: {
-                    type: 'step',
-                    dir: 'prev',
-                    text: '<',
-                },
-
-                btnPrevSlide: {
-                    type: 'slide',
-                    dir: 'prev',
-                    text: '<<',
-                },
-
-                btnNextStep: {
-                    type: 'step',
-                    dir: 'next',
-                    text: '>',
-                },
-
-                btnNextSlide: {
-                    type: 'slide',
-                    dir: 'next',
-                    text: '>>',
-                },
-
-            }, function (cfg) {
-                return {
+            children: {
+                btnPrev: {
+                    id: 'btn-prev',
                     type: 'core.entities.NavButton',
 
-                    state: cfg,
+                    state: {
+                        dir: 'prev',
+                        text: '↶',
+                         // text: '<<',
+                    },
 
                     events: {
                         click: {
-                            message: cfg.type + ':' + cfg.dir,
+                            message: 'navigation:prev'
                         }
                     },
-                };
 
-            }), {
+                    staticCss: {
+                        rules: {
+                            '#btn-prev.nav-btn': {
+                                left: '20px',
+                                'border-right': 0,
+                                'text-align': 'left',
+                            }
+                        },
+                    },
+                },
+
+                btnNext: {
+                    id: 'btn-next',
+                    type: 'core.entities.NavButton',
+
+                    state: {
+                        dir: 'next',
+                        text: '↷',
+                        // text: '>>',
+                    },
+
+                    events: {
+                        click: {
+                            message: 'navigation:next'
+                        }
+                    },
+
+                    staticCss: {
+                        rules: {
+                            '#btn-next.nav-btn': {
+                                right: '20px',
+                                'border-left': 0,
+                                'text-align': 'right',
+                            }
+                        },
+                    },
+                },
+
                 slides: {
                     id: 'slides-container',
                     type: 'core.entities.SlidesContainer'
                 },
-            }),
+            },
         };
     });
 

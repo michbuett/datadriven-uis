@@ -12,6 +12,8 @@ module.exports = function (alchemy) {
         'core.entities.Viewport',
         'core.entities.SlidesContainer',
         'core.entities.NavButton',
+        'core.entities.Slide',
+        'core.entities.Text',
     ];
 
     /**
@@ -24,6 +26,8 @@ module.exports = function (alchemy) {
         'alchemy.ecs.Administrator',
         'alchemy.ecs.Apothecarius',
         'alchemy.web.Delegatus',
+
+        'core.data.State',
         'core.controller.Navigation',
 
     ].concat(systems, entityTypes), function (
@@ -32,6 +36,7 @@ module.exports = function (alchemy) {
         Administrator,
         Apothecarius,
         Delegatus,
+        State,
         Navigation
     ) {
 
@@ -61,9 +66,16 @@ module.exports = function (alchemy) {
                     this.entityAdmin.setEntityDefaults(name, alchemy(name));
                 }, this);
 
+                this.state = State.brew().getInitialState();
+
                 this.entityAdmin.initEntities([{
-                    type: 'core.entities.Viewport'
-                }]);
+                    type: 'core.entities.Viewport',
+                    children: {
+                        slides: {
+                            children: this.slides,
+                        },
+                    }
+                }], this.state);
             },
 
             /** @override */

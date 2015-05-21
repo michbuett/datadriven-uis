@@ -6,13 +6,8 @@ module.exports = function (alchemy) {
         return {
             vdom: {
                 renderer: function (ctx) {
-                    var h = ctx.h;
-                    var state = ctx.state.val();
-
-                    return h('div', {
-                        className: ['nav-btn', state.type, state.dir].join(' '),
-                    }, [
-                        h('div.nav-btn-inner', null, state.text),
+                    return ctx.h('div.nav-btn', null, [
+                        ctx.h('div.nav-btn-inner', null, ctx.state.val('text')),
                     ]);
                 },
             },
@@ -21,18 +16,17 @@ module.exports = function (alchemy) {
                 rules: {
                     '.nav-btn': {
                         position: 'absolute',
-                        top: 0,
-                        width: '25%',
+                        top: '100px',
+                        width: '100px',
+                        height: 'calc(100% - 200px)',
                         display: 'table',
                         cursor: 'pointer',
                         opacity: 0,
-                        border: '1px solid black',
-                        margin: '20px 40px',
+                        padding: '20px',
+                        border: '1px solid rgb(251, 242, 221)',
                         'box-sizing': 'boder-box',
-                        'border-radius': '50px',
                         'font-size': '50px',
                         'z-index': 100,
-                        'background-color': 'rgba(200, 200, 200, .1)',
                     },
 
                     '.nav-btn:hover': {
@@ -42,27 +36,6 @@ module.exports = function (alchemy) {
                     '.nav-btn > div': {
                         display: 'table-cell',
                         'vertical-align': 'middle',
-                        'text-align': 'center',
-                    },
-
-                    '.nav-btn.prev': {
-                        left: 0,
-                    },
-
-                    '.nav-btn.next': {
-                        right: 0,
-                    },
-
-                    '.nav-btn.step': {
-                        top: '50%',
-                        height: '400px',
-                        'margin-top': '-200px',
-                    },
-
-                    '.nav-btn.slide': {
-                        bottom: 0,
-                        height: '100px',
-                        'z-index': 200,
                     },
                 }
             },
