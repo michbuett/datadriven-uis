@@ -21,6 +21,11 @@ module.exports = function (alchemy) {
             css: {
                 renderer: renderDynamicCss
             },
+
+            globalToLocal: {
+                numOfSlides: 'numOfSlides',
+                currentIndex: 'currentIndex',
+            },
         };
     });
 
@@ -36,11 +41,26 @@ module.exports = function (alchemy) {
                 width: '100%',
                 height: '100%',
             },
+
+            '.slides-container-mask > *': {
+                transition: 'opacity 0.5s ease-in-out'
+            },
         };
     }
 
     /** @private */
-    function renderDynamicCss(state) {
+    function renderDynamicCss(ctx) {
+        var rules = {};
+        var numOfSlides = ctx.state.val('numOfSlides');
+        var currentIndex = ctx.state.val('currentIndex');
+
+        for (var i = 0; i < numOfSlides; i++) {
+            rules['.slides-container-mask > *:nth-child(' + (i + 1) + ')'] = {
+                opacity: (i === currentIndex) ? 1 : 0
+            };
+        }
+
+        return rules;
     }
 };
 

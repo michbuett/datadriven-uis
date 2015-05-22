@@ -9,16 +9,14 @@ module.exports = function (alchemy) {
     alchemy.formula.define('core.data.State', [
         'alchemy.core.MateriaPrima',
         'alchemy.core.Immutatio',
-        'core.data.Slides',
 
     ], function (MateriaPrima, Immutatio, Slides) {
 
         return alchemy.extend(MateriaPrima, {
-            getInitialState: function () {
+            getInitialState: function (numOfSlides) {
                 var state = {
-                    slide: 0,
-                    step: 0,
-                    slides: Slides,
+                    currentIndex: 0,
+                    numOfSlides: numOfSlides,
                 };
 
                 return Immutatio.makeImmutable(state);

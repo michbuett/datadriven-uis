@@ -8,29 +8,31 @@ module.exports = function (alchemy) {
         return alchemy.extend(MateriaPrima, {
 
             messages: {
-                'slide:next': 'onNextSlide',
-                'slide:prev': 'onPrevSlide',
-                'step:next': 'onNextStep',
-                'step:prev': 'onPrevStep',
+                'navigation:next': 'onNextSlide',
+                'navigation:prev': 'onPrevSlide',
             },
 
+            /** @private */
             onNextSlide: function (state) {
                 console.log('TODO: navigate to next slide...');
+
+                var current = state.val('currentIndex');
+                if (current < state.val('numOfSlides') - 1) {
+                    return state.set('currentIndex', current + 1);
+                }
+
                 return state;
             },
 
+            /** @private */
             onPrevSlide: function (state) {
                 console.log('TODO: navigate to previous slide...');
-                return state;
-            },
 
-            onNextStep: function (state) {
-                console.log('TODO: navigate to next step...');
-                return state;
-            },
+                var current = state.val('currentIndex');
+                if (current > 0) {
+                    return state.set('currentIndex', current - 1);
+                }
 
-            onPrevStep: function (state) {
-                console.log('TODO: navigate to previous step...');
                 return state;
             },
         });

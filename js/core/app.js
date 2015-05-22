@@ -66,7 +66,7 @@ module.exports = function (alchemy) {
                     this.entityAdmin.setEntityDefaults(name, alchemy(name));
                 }, this);
 
-                this.state = State.brew().getInitialState();
+                this.state = State.brew().getInitialState(this.slides.length);
 
                 this.entityAdmin.initEntities([{
                     type: 'core.entities.Viewport',

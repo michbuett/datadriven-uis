@@ -23,6 +23,12 @@ module.exports = function (alchemy) {
                 renderer: renderDynamicCss
             },
 
+            events: {
+                keydown: {
+                    handler: onKeypressed,
+                }
+            },
+
             children: {
                 btnPrev: {
                     id: 'btn-prev',
@@ -31,7 +37,6 @@ module.exports = function (alchemy) {
                     state: {
                         dir: 'prev',
                         text: '↶',
-                         // text: '<<',
                     },
 
                     events: {
@@ -58,7 +63,6 @@ module.exports = function (alchemy) {
                     state: {
                         dir: 'next',
                         text: '↷',
-                        // text: '>>',
                     },
 
                     events: {
@@ -88,7 +92,9 @@ module.exports = function (alchemy) {
 
     /** @private */
     function renderVdom(ctx) {
-        return ctx.h('div#viewport', null, ctx.renderAllChildren());
+        return ctx.h('div#viewport', {
+            tabIndex: '1'
+        }, ctx.renderAllChildren());
     }
 
     /** @private */
@@ -98,10 +104,30 @@ module.exports = function (alchemy) {
                 width: '100%',
                 height: '100%',
             },
+
+            '#viewport:focus': {
+                'box-shadow': 'inset 0 0 10px white',
+            }
         };
     }
 
     /** @private */
     function renderDynamicCss(state) {
+    }
+
+    /** @private */
+    function onKeypressed(event, state, message) {
+        var key = event.which || event.keyCode;
+        console.log('onKeypressed', event, key);
+
+        if (key === 37) {
+            message.trigger('navigation:prev');
+            return;
+        }
+
+        if (key === 39) {
+            message.trigger('navigation:next');
+            return;
+        }
     }
 };
