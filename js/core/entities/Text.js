@@ -14,11 +14,6 @@ module.exports = function (alchemy) {
                     }, s.val('text'));
                 },
             },
-
-            staticCss: {
-                rules: {
-                }
-            },
         };
     });
 };

@@ -12,8 +12,8 @@ module.exports = function (alchemy) {
                 },
             },
 
-            staticCss: {
-                rules: {
+            css: {
+                typeRules: {
                     '.nav-btn': {
                         position: 'absolute',
                         top: '100px',

@@ -4,9 +4,13 @@ module.exports = function (alchemy) {
     alchemy.formula.define('core.entities.Slide', [], function () {
 
         return {
+            globalToLocal: {
+                currentIndex: 'currentIndex'
+            },
 
             state: {
                 title: '',
+                index: 0,
             },
 
             vdom: {
@@ -24,27 +28,34 @@ module.exports = function (alchemy) {
                 },
             },
 
-            staticCss: {
-                rules: {
+            css: {
+                typeRules: {
                     '.slide': {
                         position: 'absolute',
                         width: '100%',
                         height: '100%',
                         display: 'table',
                         'text-align': 'center',
-                    },
 
-                    '.slide .slide-title': {
-                        position: 'absolute',
-                        top: '20px',
-                        left: '20px',
-                        'font-size': '30px',
-                    },
+                        '.slide-title': {
+                            position: 'absolute',
+                            top: '20px',
+                            left: '20px',
+                            'font-size': '30px',
+                        },
 
-                    '.slide .slide-inner': {
-                        display: 'table-cell',
-                        'vertical-align': 'middle',
-                    }
+                        '.slide-inner': {
+                            display: 'table-cell',
+                            'vertical-align': 'middle',
+                        },
+                    },
+                },
+
+                entityRules: function (state) {
+                    var isActive = state.val('currentIndex') === state.val('index');
+                    return {
+                        opacity: isActive ? 1 : 0,
+                    };
                 }
             },
         };

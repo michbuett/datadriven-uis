@@ -17,8 +17,8 @@ module.exports = function (alchemy) {
                     }
                 },
 
-                staticCss: {
-                    rules: {
+                css: {
+                    typeRules: {
                         '#speaker-img': {
                             width: '100%',
                             height: '500px',

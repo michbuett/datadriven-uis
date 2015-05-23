@@ -15,12 +15,8 @@ module.exports = function (alchemy) {
                 renderer: renderVdom,
             },
 
-            staticCss: {
-                rules: renderStaticCss(),
-            },
-
             css: {
-                renderer: renderDynamicCss
+                typeRules: renderStaticCss(),
             },
 
             events: {
@@ -45,8 +41,8 @@ module.exports = function (alchemy) {
                         }
                     },
 
-                    staticCss: {
-                        rules: {
+                    css: {
+                        typeRules: {
                             '#btn-prev.nav-btn': {
                                 left: '20px',
                                 'border-right': 0,
@@ -71,8 +67,8 @@ module.exports = function (alchemy) {
                         }
                     },
 
-                    staticCss: {
-                        rules: {
+                    css: {
+                        typeRules: {
                             '#btn-next.nav-btn': {
                                 right: '20px',
                                 'border-left': 0,
@@ -92,8 +88,9 @@ module.exports = function (alchemy) {
 
     /** @private */
     function renderVdom(ctx) {
-        return ctx.h('div#viewport', {
-            tabIndex: '1'
+        return ctx.h('button#viewport', {
+            tabIndex: '1',
+            autofocus: '1',
         }, ctx.renderAllChildren());
     }
 
@@ -105,14 +102,18 @@ module.exports = function (alchemy) {
                 height: '100%',
             },
 
+            '#viewport': {
+                padding: 0,
+                border: 0,
+                background: 'transparent',
+                color: 'inherit',
+                'font-size': 'inherit',
+            },
+
             '#viewport:focus': {
                 'box-shadow': 'inset 0 0 10px white',
             }
         };
-    }
-
-    /** @private */
-    function renderDynamicCss(state) {
     }
 
     /** @private */

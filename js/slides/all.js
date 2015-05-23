@@ -7,8 +7,13 @@ module.exports = function (alchemy) {
     ];
 
     alchemy.formula.define('slides.all', slides, function () {
-        return alchemy.each(slides, function (name) {
-            return alchemy(name);
+        return alchemy.each(slides, function (name, index) {
+            var slideComponents = alchemy(name);
+
+            slideComponents.state = slideComponents.state || {};
+            slideComponents.state.index = index;
+
+            return slideComponents;
         });
     });
 };
