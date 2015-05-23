@@ -14,14 +14,10 @@ module.exports = function (alchemy) {
                 },
 
                 css: {
-                    renderer: function (ctx) {
-                        var rules = {};
-
-                        rules['#' + ctx.entityId] = {
-                            'font-size': '55px',
+                    entityRules: function () {
+                        return {
+                            'font-size': '65px',
                         };
-
-                        return rules;
                     },
                 }
             }, {
@@ -32,14 +28,10 @@ module.exports = function (alchemy) {
                 },
 
                 css: {
-                    renderer: function (ctx) {
-                        var rules = {};
-
-                        rules['#' + ctx.entityId] = {
-                            'font-size': '20px',
+                    entityRules: function () {
+                        return {
+                            'font-size': '25px',
                         };
-
-                        return rules;
                     },
                 }
             }]

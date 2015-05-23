@@ -4,6 +4,11 @@ module.exports = function (alchemy) {
     var slides = [
         'slides.Title',
         'slides.Speaker',
+        'slides.WhyUIs-01',
+        'slides.WhyUIs-02',
+        'slides.WhyUIs-03',
+        'slides.WhyUIs-04',
+        'slides.WhyUIs-05',
     ];
 
     alchemy.formula.define('slides.all', slides, function () {

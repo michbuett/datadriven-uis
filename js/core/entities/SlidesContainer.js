@@ -22,10 +22,6 @@ module.exports = function (alchemy) {
                         width: '100%',
                         height: '100%',
                     },
-
-                    '.slides-container-mask > *': {
-                        transition: 'opacity 0.5s ease-in-out'
-                    },
                 },
             },
 

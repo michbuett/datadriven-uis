@@ -14,8 +14,6 @@ module.exports = function (alchemy) {
 
             /** @private */
             onNextSlide: function (state) {
-                console.log('TODO: navigate to next slide...');
-
                 var current = state.val('currentIndex');
                 if (current < state.val('numOfSlides') - 1) {
                     return state.set('currentIndex', current + 1);
@@ -26,8 +24,6 @@ module.exports = function (alchemy) {
 
             /** @private */
             onPrevSlide: function (state) {
-                console.log('TODO: navigate to previous slide...');
-
                 var current = state.val('currentIndex');
                 if (current > 0) {
                     return state.set('currentIndex', current - 1);

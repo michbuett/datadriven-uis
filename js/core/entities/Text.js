@@ -14,6 +14,14 @@ module.exports = function (alchemy) {
                     }, s.val('text'));
                 },
             },
+
+            css: {
+                typeRules: {
+                    '.text': {
+                        margin: '20px 0',
+                    },
+                },
+            },
         };
     });
 };

@@ -17,7 +17,6 @@ module.exports = function (alchemy) {
                 renderer: function (ctx) {
                     var h = ctx.h;
 
-
                     return h('div.slide', {
                         id: ctx.entityId,
                         key: ctx.entityId,
@@ -41,11 +40,13 @@ module.exports = function (alchemy) {
                             position: 'absolute',
                             top: '20px',
                             left: '20px',
+                            'font-style': 'italic',
                             'font-size': '30px',
                         },
 
                         '.slide-inner': {
                             display: 'table-cell',
+                            transition: 'opacity 0.3s ease-in-out',
                             'vertical-align': 'middle',
                         },
                     },
@@ -54,12 +55,16 @@ module.exports = function (alchemy) {
                 entityRules: function (state) {
                     var isActive = state.val('currentIndex') === state.val('index');
                     return {
-                        opacity: isActive ? 1 : 0,
+                        '.slide-title': {
+                            display: isActive ? 'block' : 'none',
+                        },
+
+                        '.slide-inner': {
+                            opacity: isActive ? 1 : 0,
+                        }
                     };
                 }
             },
         };
     });
 };
-
-

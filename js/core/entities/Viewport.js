@@ -119,14 +119,14 @@ module.exports = function (alchemy) {
     /** @private */
     function onKeypressed(event, state, message) {
         var key = event.which || event.keyCode;
-        console.log('onKeypressed', event, key);
+        // console.log('onKeypressed', event, key);
 
-        if (key === 37) {
+        if (key === 37 || key === 27) { // [<], [ESC]
             message.trigger('navigation:prev');
             return;
         }
 
-        if (key === 39) {
+        if (key === 39 || key === 13) { // [>], [RETURN]
             message.trigger('navigation:next');
             return;
         }
