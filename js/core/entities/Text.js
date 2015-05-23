@@ -18,6 +18,7 @@ module.exports = function (alchemy) {
             css: {
                 typeRules: {
                     '.text': {
+                        padding: '0 40px',
                         margin: '20px 0',
                     },
                 },

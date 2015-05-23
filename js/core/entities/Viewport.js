@@ -79,8 +79,11 @@ module.exports = function (alchemy) {
                 },
 
                 slides: {
-                    id: 'slides-container',
-                    type: 'core.entities.SlidesContainer'
+                    vdom: {
+                        renderer: function (ctx) {
+                            return ctx.h('div.slides-wrap', null, ctx.renderAllChildren());
+                        }
+                    },
                 },
             },
         };

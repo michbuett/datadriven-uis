@@ -10,7 +10,6 @@ module.exports = function (alchemy) {
 
     var entityTypes = [
         'core.entities.Viewport',
-        'core.entities.SlidesContainer',
         'core.entities.NavButton',
         'core.entities.Slide',
         'core.entities.Text',
