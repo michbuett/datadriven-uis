@@ -1,7 +1,7 @@
 module.exports = function (alchemy) {
     'use strict';
 
-    alchemy.formula.define('slides.Definition-04', [], function () {
+    alchemy.formula.define('slides.AppArchitecture-04', [], function () {
 
         return {
             type: 'core.entities.Slide',

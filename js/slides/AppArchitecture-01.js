@@ -1,7 +1,9 @@
 module.exports = function (alchemy) {
     'use strict';
 
-    alchemy.formula.define('slides.Definition-05', [], function () {
+    alchemy.formula.define('slides.AppArchitecture-01', [], function () {
+
+        // - Schritt 1: die Trennung von UI und Rest und das Definieren eine klaren Schnittstelle
 
         return {
             type: 'core.entities.Slide',
@@ -37,7 +39,6 @@ module.exports = function (alchemy) {
                         y: 75,
                         w: 300,
                         h: 600,
-                        background: true,
                     }
                 }, {
                     type: 'core.entities.Arrow',
@@ -54,7 +55,6 @@ module.exports = function (alchemy) {
                         text: 'Events',
                         x: 375,
                         y: 400,
-                        background: true,
                     }
                 }, {
                     type: 'core.entities.Box',
@@ -64,7 +64,6 @@ module.exports = function (alchemy) {
                         y: 75,
                         w: 300,
                         h: 600,
-                        background: true,
                     }
                 }]
             }]
