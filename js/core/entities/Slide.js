@@ -65,19 +65,6 @@ module.exports = function (alchemy) {
                         opacity: 0,
                     }
                 },
-
-                // entityRules: function (state) {
-                //     var isActive = state.val('currentIndex') === state.val('index');
-                //     return {
-                //         '.slide-title': {
-                //             display: isActive ? 'block' : 'none',
-                //         },
-
-                //         '.slide-inner': {
-                //             opacity: isActive ? 1 : 0,
-                //         }
-                //     };
-                // }
             },
         };
     });

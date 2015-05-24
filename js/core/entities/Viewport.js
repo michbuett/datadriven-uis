@@ -32,7 +32,6 @@ module.exports = function (alchemy) {
                         border: 0,
                         background: 'transparent',
                         color: 'inherit',
-                        'font-size': 'inherit',
                     },
 
                     '#viewport:focus': {

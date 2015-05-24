@@ -1,8 +1,12 @@
 body {
     color: rgb(251, 242, 221);
-    font-size: 45px;
+    font-size: 0;
     font-family: helvetica;
     background-color: rgb(34, 32, 52);
+}
+
+#viewport {
+    font-size: 45px;
 }
 
 .svg, .box {

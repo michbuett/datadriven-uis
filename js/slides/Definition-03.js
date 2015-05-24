@@ -3,6 +3,13 @@ module.exports = function (alchemy) {
 
     alchemy.formula.define('slides.Definition-03', [], function () {
 
+        // - UI ist (wie der Name schon sagt) die Schnittstelle zu Nutzer
+        // - Darstellung von Informationen
+        // - Eingaben des Nuter entgegen nehmen
+        // - nichts neues
+        // - im Prinzip das V in MVC
+        // - muss evtl für spezielle Endgeräte angepasst werden
+
         return {
             type: 'core.entities.Slide',
 
