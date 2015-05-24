@@ -13,14 +13,38 @@ module.exports = function (alchemy) {
     ], function (MateriaPrima, Immutatio, Slides) {
 
         return alchemy.extend(MateriaPrima, {
-            getInitialState: function (numOfSlides) {
-                var state = {
+
+            storageKey: 'slides',
+
+            getInitialState: function (cfg) {
+                var state = alchemy.mix({
                     currentIndex: 0,
-                    numOfSlides: numOfSlides,
-                };
+                    numOfSlides: 0,
+                }, this.load(), cfg);
 
                 return Immutatio.makeImmutable(state);
-            }
+            },
+
+            update: function (appState) {
+                if (appState === this.appState) {
+                    return;
+                }
+
+                this.save(appState);
+                this.appState = appState;
+            },
+
+            save: function (state) {
+                localStorage.setItem(this.storageKey, JSON.stringify(state.val()));
+            },
+
+            load: function () {
+                try {
+                    return JSON.parse(localStorage.getItem(this.storageKey));
+                } catch (e) {
+                    return {};
+                }
+            },
         });
     });
 };

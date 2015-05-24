@@ -64,7 +64,10 @@ module.exports = function (alchemy) {
                     this.entityAdmin.setEntityDefaults(name, alchemy(name));
                 }, this);
 
-                this.state = State.brew().getInitialState(this.slides.length);
+                this.stateStore = State.brew();
+                this.state = this.stateStore.getInitialState({
+                    numOfSlides: this.slides.length
+                });
 
                 this.entityAdmin.initEntities([{
                     type: 'core.entities.Viewport',
@@ -74,6 +77,7 @@ module.exports = function (alchemy) {
 
             /** @override */
             update: function (p) {
+                this.stateStore.update(p.state);
                 this.entityAdmin.update(p.state);
             },
         });
