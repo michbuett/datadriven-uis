@@ -3,6 +3,8 @@ module.exports = function (alchemy) {
 
     alchemy.formula.define('slides.Definition-01', [], function () {
 
+        // - Schritt 1: die Trennung von UI und Rest und das Definieren eine klaren Schnittstelle
+
         return {
             type: 'core.entities.Slide',
 

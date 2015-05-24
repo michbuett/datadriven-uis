@@ -3,6 +3,10 @@ module.exports = function (alchemy) {
 
     alchemy.formula.define('slides.Definition-02', [], function () {
 
+        // - prinzipiell ist Schnitt egal
+        // - technisch wird vieles einfacher wenn Schnitt möglichts weit rechts
+        // - Client = (HTML, JS, CSS)
+
         return {
             type: 'core.entities.Slide',
 
@@ -63,6 +67,43 @@ module.exports = function (alchemy) {
                         w: 300,
                         h: 600,
                     }
+                }, {
+                    type: 'core.entities.Box',
+
+                    state: {
+                        title: 'Client',
+                    },
+
+                    css: {
+                        entityRules: function () {
+                            return {
+                                'width': '715px',
+                                'height': '700px',
+                                'color': 'white',
+                                'border': '3px white dashed',
+                                'background-color': 'rgba(20, 200, 255, 0.2)',
+                            };
+                        }
+                    },
+                }, {
+                    type: 'core.entities.Box',
+
+                    state: {
+                        title: 'Server',
+                    },
+
+                    css: {
+                        entityRules: function () {
+                            return {
+                                'left': '725px',
+                                'width': '275px',
+                                'height': '700px',
+                                'color': 'white',
+                                'border': '3px white dashed',
+                                'background-color': 'rgba(200, 20, 255, 0.2)',
+                            };
+                        }
+                    },
                 }]
             }]
         };

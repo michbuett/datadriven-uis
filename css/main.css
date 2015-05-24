@@ -11,6 +11,8 @@ body {
 
 .svg, .box {
     color: rgb(34, 32, 52);
+    font-family: monospace;
+    font-size: 35px;
 }
 
 .box {
