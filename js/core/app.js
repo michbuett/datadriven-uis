@@ -10,7 +10,6 @@ module.exports = function (alchemy) {
 
     var entityTypes = [
         'core.entities.Viewport',
-        'core.entities.NavButton',
         'core.entities.Slide',
         'core.entities.Text',
     ];
@@ -69,11 +68,7 @@ module.exports = function (alchemy) {
 
                 this.entityAdmin.initEntities([{
                     type: 'core.entities.Viewport',
-                    children: {
-                        slides: {
-                            children: this.slides,
-                        },
-                    }
+                    children: this.slides,
                 }], this.state);
             },
 

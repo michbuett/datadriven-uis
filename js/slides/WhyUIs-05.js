@@ -15,6 +15,7 @@ module.exports = function (alchemy) {
                 state: {
                     text: 'Die existierenden Lösungen sind unzureichend.'
                     // - data-bound-views werden schnell unhandlich
+                    // - jeder ist schonmal an MVC gescheitert
                     // - MVC/FRP schwierig umzusetzten
                 },
             }]

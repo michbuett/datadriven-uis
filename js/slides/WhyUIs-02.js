@@ -17,6 +17,7 @@ module.exports = function (alchemy) {
                     // - anspruchsvoller als backend
                     // - meist nur CRUD mit Zugriffsrechten
                     // - animationen, asynchronität, unterschiedliche Plattformen/Endgräte
+                    // - pixel-genaue Umsetzung
                     // - neue Endgeräte -> neue Bedienkonzepte
                 },
             }]

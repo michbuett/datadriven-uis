@@ -12,126 +12,67 @@ module.exports = function (alchemy) {
 
             vdom: {
                 root: document.getElementById('viewport'),
-                renderer: renderVdom,
-            },
-
-            css: {
-                typeRules: renderStaticCss(),
-            },
-
-            events: {
-                keydown: {
-                    handler: onKeypressed,
+                renderer: function renderVdom(ctx) {
+                    return ctx.h('button#viewport', {
+                        tabIndex: '1',
+                        autofocus: '1',
+                    }, ctx.renderAllChildren());
                 }
             },
 
-            children: {
-                btnPrev: {
-                    id: 'btn-prev',
-                    type: 'core.entities.NavButton',
-
-                    state: {
-                        dir: 'prev',
-                        text: '↶',
+            css: {
+                typeRules: {
+                    'html, body, #viewport': {
+                        width: '100%',
+                        height: '100%',
                     },
 
-                    events: {
-                        click: {
-                            message: 'navigation:prev'
-                        }
+                    '#viewport': {
+                        padding: 0,
+                        border: 0,
+                        background: 'transparent',
+                        color: 'inherit',
+                        'font-size': 'inherit',
                     },
 
-                    css: {
-                        typeRules: {
-                            '#btn-prev.nav-btn': {
-                                left: '20px',
-                                'border-right': 0,
-                                'text-align': 'left',
-                            }
-                        },
-                    },
+                    '#viewport:focus': {
+                        'box-shadow': 'inset 0 0 10px white',
+                    }
+                }
+            },
+
+            events: {
+                contextmenu: {
+                    handler: function onContextMenu(event, state, message) {
+                        message.trigger('navigation:prev');
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
                 },
 
-                btnNext: {
-                    id: 'btn-next',
-                    type: 'core.entities.NavButton',
-
-                    state: {
-                        dir: 'next',
-                        text: '↷',
-                    },
-
-                    events: {
-                        click: {
-                            message: 'navigation:next'
-                        }
-                    },
-
-                    css: {
-                        typeRules: {
-                            '#btn-next.nav-btn': {
-                                right: '20px',
-                                'border-left': 0,
-                                'text-align': 'right',
-                            }
-                        },
-                    },
+                click: {
+                    handler: function onClick(event, state, message) {
+                        message.trigger('navigation:next');
+                    }
                 },
 
-                slides: {
-                    vdom: {
-                        renderer: function (ctx) {
-                            return ctx.h('div.slides-wrap', null, ctx.renderAllChildren());
+                keydown: {
+                    handler: function onKeypressed(event, state, message) {
+                        var key = event.which || event.keyCode;
+                        // console.log('onKeypressed', event, key);
+
+                        if (key === 37 || key === 27) { // [<], [ESC]
+                            message.trigger('navigation:prev');
+                            return;
                         }
-                    },
+
+                        if (key === 39 || key === 13) { // [>], [RETURN]
+                            message.trigger('navigation:next');
+                            return;
+                        }
+                    }
                 },
             },
         };
     });
-
-    /** @private */
-    function renderVdom(ctx) {
-        return ctx.h('button#viewport', {
-            tabIndex: '1',
-            autofocus: '1',
-        }, ctx.renderAllChildren());
-    }
-
-    /** @private */
-    function renderStaticCss() {
-        return {
-            'html, body, #viewport, .slides-wrap': {
-                width: '100%',
-                height: '100%',
-            },
-
-            '#viewport': {
-                padding: 0,
-                border: 0,
-                background: 'transparent',
-                color: 'inherit',
-                'font-size': 'inherit',
-            },
-
-            '#viewport:focus': {
-                'box-shadow': 'inset 0 0 10px white',
-            }
-        };
-    }
-
-    /** @private */
-    function onKeypressed(event, state, message) {
-        var key = event.which || event.keyCode;
-        // console.log('onKeypressed', event, key);
-
-        if (key === 37 || key === 27) { // [<], [ESC]
-            message.trigger('navigation:prev');
-            return;
-        }
-
-        if (key === 39 || key === 13) { // [>], [RETURN]
-            message.trigger('navigation:next');
-            return;
-        }
-    }
 };
