@@ -12,6 +12,8 @@ module.exports = function (alchemy) {
         'core.entities.Viewport',
         'core.entities.Slide',
         'core.entities.Text',
+        'core.entities.Box',
+        'core.entities.Arrow',
     ];
 
     /**

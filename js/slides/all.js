@@ -9,6 +9,12 @@ module.exports = function (alchemy) {
         'slides.WhyUIs-03',
         'slides.WhyUIs-04',
         'slides.WhyUIs-05',
+        'slides.Definition-01',
+        'slides.Definition-02',
+        'slides.Definition-03',
+        'slides.Definition-04',
+        'slides.Definition-05',
+        'slides.Definition-06',
     ];
 
     alchemy.formula.define('slides.all', slides, function () {

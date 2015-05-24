@@ -16,10 +16,12 @@ module.exports = function (alchemy) {
             vdom: {
                 renderer: function (ctx) {
                     var h = ctx.h;
+                    var isActive = ctx.state.val('currentIndex') === ctx.state.val('index');
 
                     return h('div.slide', {
                         id: ctx.entityId,
                         key: ctx.entityId,
+                        className: isActive ? 'active' : 'hidden',
                     }, [
                         h('div.slide-title', ctx.state.val('title')),
                         h('div.slide-inner', ctx.renderAllChildren()),
@@ -47,25 +49,35 @@ module.exports = function (alchemy) {
                         },
 
                         '.slide-inner': {
+                            width: '100%',
                             display: 'table-cell',
                             transition: 'opacity 0.3s ease-in-out',
                             'vertical-align': 'middle',
                         },
+
                     },
+
+                    '.slide.hidden .slide-title': {
+                        visibility: 'hidden',
+                    },
+
+                    '.slide.hidden .slide-inner': {
+                        opacity: 0,
+                    }
                 },
 
-                entityRules: function (state) {
-                    var isActive = state.val('currentIndex') === state.val('index');
-                    return {
-                        '.slide-title': {
-                            display: isActive ? 'block' : 'none',
-                        },
+                // entityRules: function (state) {
+                //     var isActive = state.val('currentIndex') === state.val('index');
+                //     return {
+                //         '.slide-title': {
+                //             display: isActive ? 'block' : 'none',
+                //         },
 
-                        '.slide-inner': {
-                            opacity: isActive ? 1 : 0,
-                        }
-                    };
-                }
+                //         '.slide-inner': {
+                //             opacity: isActive ? 1 : 0,
+                //         }
+                //     };
+                // }
             },
         };
     });

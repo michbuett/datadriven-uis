@@ -14,6 +14,7 @@ module.exports = function (alchemy) {
                 type: 'core.entities.Text',
                 state: {
                     text: 'Die existierenden Lösungen sind unzureichend.'
+                    // - Bei serverseitig erzeugte UIs gibt es Probleme mit unterschiedlichen Endgeräten
                     // - data-bound-views werden schnell unhandlich
                     // - jeder ist schonmal an MVC gescheitert
                     // - MVC/FRP schwierig umzusetzten

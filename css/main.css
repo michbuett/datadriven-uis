@@ -4,3 +4,15 @@ body {
     font-family: helvetica;
     background-color: rgb(34, 32, 52);
 }
+
+.svg, .box {
+    color: rgb(34, 32, 52);
+}
+
+.box {
+    background-color: white;
+}
+
+.background {
+    opacity: .3;
+}
