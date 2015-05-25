@@ -15,6 +15,8 @@ module.exports = function (alchemy) {
         'slides.AppArchitecture-04',
         'slides.AppArchitecture-05',
         'slides.AppArchitecture-06',
+        'slides.AppArchitecture-07',
+        'slides.UIArchitecture-01',
     ];
 
     alchemy.formula.define('slides.all', slides, function () {

@@ -37,7 +37,7 @@ module.exports = function (alchemy) {
                         top: 0,
                         left: 0,
                         width: '100%',
-                        padding: '20px',
+                        padding: '10px',
                         'box-sizing': 'border-box',
                         'text-align': 'center',
                     },

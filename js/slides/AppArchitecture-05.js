@@ -34,8 +34,8 @@ module.exports = function (alchemy) {
                     state: {
                         title: 'UI',
                         x: 75,
-                        y: 75,
-                        w: 300,
+                        y: 90,
+                        w: 325,
                         h: 600,
                         background: true,
                     }
@@ -44,25 +44,25 @@ module.exports = function (alchemy) {
                     state: {
                         dir: 'left',
                         text: 'State',
-                        x: 375,
-                        y: 150,
+                        x: 400,
+                        y: 250,
+                        background: true,
                     }
                 }, {
                     type: 'core.entities.Arrow',
                     state: {
                         dir: 'right',
                         text: 'Events',
-                        x: 375,
+                        x: 400,
                         y: 400,
-                        background: true,
                     }
                 }, {
                     type: 'core.entities.Box',
                     state: {
                         title: 'Application',
-                        x: 625,
-                        y: 75,
-                        w: 300,
+                        x: 600,
+                        y: 90,
+                        w: 325,
                         h: 600,
                         background: true,
                     }

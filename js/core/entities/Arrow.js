@@ -14,34 +14,56 @@ module.exports = function (alchemy) {
 
             vdom: {
                 renderer: function (ctx) {
-                    return ctx.h('div.svg', {
+                    var className = 'arrow ' + ctx.state.val('dir');
+
+                    if (ctx.state.val('background')) {
+                        className += ' background';
+                    }
+
+                    return ctx.h('div', {
                         id: ctx.entityId,
-                        className: ctx.state.val('background') ? 'background' : '',
-                    }, ctx.state.val('text'));
+                        className: className
+                    }, [
+                        ctx.h('span.arrow-text', ctx.state.val('text')),
+                    ]);
                 }
             },
 
             css: {
                 typeRules: {
-                    '.svg': {
-                        position: 'absolute',
-                        width: '250px',
-                        height: '200px',
-                        padding: '0 20px',
+                    '.arrow': {
+                        'position': 'absolute',
                         'box-sizing': 'border-box',
                         'vertical-align': 'middle',
-                        'line-height': '200px',
+                        'text-align': 'center',
                     },
+
+                    '.arrow.right, .arrow.left': {
+                        'width': '200px',
+                        'min-height': '30px',
+                    },
+
+                    '.arrow.up, .arrow.down': {
+                        'min-width': '30px',
+                        'height': '100px',
+                    },
+
+                    '.arrow-text': {
+                        'background-color': 'white',
+                        'border-radius': '20px',
+                        'padding': '5px 10px',
+                    },
+
+                    '.arrow-text:empty': {
+                        'visibility': 'hidden',
+                    }
                 },
 
                 entityRules: function (state) {
-                    var dir = state.val('dir');
-
                     return {
                         left: state.val('x') + 'px',
                         top: state.val('y') + 'px',
-                        background: 'url(svg/arrow_' + dir + '.svg)',
-                        'text-align': dir === 'left' ? 'right' : 'left',
+                        background: 'url(svg/arrow_' + state.val('dir') + '.svg) 50% 50% no-repeat',
                     };
                 },
             },

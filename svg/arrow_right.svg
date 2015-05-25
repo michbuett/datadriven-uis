@@ -1,9 +1,9 @@
-<svg width="250" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg width="200" height="30" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
     <g>
         <title>arrow (right)</title>
         <path
             stroke="#000000"
-            d="M 0 50 L 150 50 L 150 0 L 250 100 L 150 200 L 150 150 L 0 150 L 0 50 z"
+            d="M 0 10 L 190 10 L 190 0 L 200 15 L 190 30 L 190 20 L 0 20 L 0 10 z"
             fill="#ffffff"
             stroke-width="0"
             stroke-dasharray="null"

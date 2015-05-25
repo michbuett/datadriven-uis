@@ -9,10 +9,10 @@ body {
     font-size: 45px;
 }
 
-.svg, .box {
+.arrow, .box, .entity {
     color: rgb(34, 32, 52);
     font-family: monospace;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .box {

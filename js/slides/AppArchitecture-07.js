@@ -1,9 +1,9 @@
 module.exports = function (alchemy) {
     'use strict';
 
-    alchemy.formula.define('slides.AppArchitecture-01', [], function () {
+    alchemy.formula.define('slides.AppArchitecture-07', [], function () {
 
-        // - Schritt 1: die Trennung von UI und Rest und das Definieren eine klaren Schnittstelle
+        // - neu: ECS
 
         return {
             type: 'core.entities.Slide',
@@ -47,6 +47,7 @@ module.exports = function (alchemy) {
                         text: 'State',
                         x: 400,
                         y: 250,
+                        background: true,
                     }
                 }, {
                     type: 'core.entities.Arrow',
@@ -55,6 +56,7 @@ module.exports = function (alchemy) {
                         text: 'Events',
                         x: 400,
                         y: 400,
+                        background: true,
                     }
                 }, {
                     type: 'core.entities.Box',
@@ -64,7 +66,30 @@ module.exports = function (alchemy) {
                         y: 90,
                         w: 325,
                         h: 600,
+                        background: true,
                     }
+                }, {
+                    type: 'core.entities.Box',
+
+                    state: {
+                        title: 'Entity Component System',
+                    },
+
+                    css: {
+                        entityRules: function () {
+                            return {
+                                "top": "150px",
+                                'left': '100px',
+                                'width': '275px',
+                                'height': '500px',
+                                'background-color': 'rgba(200, 20, 255, 0.2)',
+
+                                '.box-title': {
+                                    'top': '100px',
+                                },
+                            };
+                        }
+                    },
                 }]
             }]
         };
