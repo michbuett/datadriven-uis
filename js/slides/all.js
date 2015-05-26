@@ -17,6 +17,22 @@ module.exports = function (alchemy) {
         'slides.AppArchitecture-06',
         'slides.AppArchitecture-07',
         'slides.UIArchitecture-01',
+        'slides.UIArchitecture-entities',
+        'slides.UIArchitecture-entitiesCode',
+        'slides.UIArchitecture-entityRepo',
+        'slides.UIArchitecture-systems',
+        'slides.UIArchitecture-system-html',
+        'slides.UIArchitecture-system-htmlCode',
+        'slides.UIArchitecture-system-event',
+        'slides.UIArchitecture-system-css',
+        'slides.UIArchitecture-system-state',
+        'slides.Testing-blank',
+        'slides.Testing-systems',
+        'slides.Testing-UI-01',
+        'slides.Testing-UI-02',
+        'slides.Testing-UI-03',
+        'slides.Iceberg',
+        'slides.Questions',
     ];
 
     alchemy.formula.define('slides.all', slides, function () {

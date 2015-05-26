@@ -1,7 +1,7 @@
 module.exports = function (alchemy) {
     'use strict';
 
-    alchemy.formula.define('slides.UIArchitecture-01', [
+    alchemy.formula.define('slides.UIArchitecture-system-css', [
         'slides.entities.Arrow',
         'slides.entities.Entity',
         'slides.entities.System',
@@ -12,7 +12,7 @@ module.exports = function (alchemy) {
             type: 'core.entities.Slide',
 
             state: {
-                title: 'Wie sieht die Architektur des User Interfaces aus?'
+                title: 'CSS-System'
             },
 
             children: [{
@@ -65,8 +65,8 @@ module.exports = function (alchemy) {
                     },
                 },
 
-                entity('Entity #1', 85, 135, ['html', 'css']),
-                entity('Entity #2', 340, 135, ['html', 'css', 'state']),
+                entity('Entity #1', 85, 135, ['html', 'css'], true),
+                entity('Entity #2', 340, 135, ['html', 'css', 'state'], true),
 
                 {
                     vdom: {
@@ -82,12 +82,13 @@ module.exports = function (alchemy) {
                     }
                 },
 
-                entity('Entity #n', 640, 135, ['html', 'state', 'events']),
+                entity('Entity #n', 640, 135, ['html', 'state', 'events'], true),
 
                 {
                     type: 'core.entities.Box',
                     state: {
                         title: 'Systems',
+                        background: true,
                     },
                     css: {
                         entityRules: function () {
@@ -106,13 +107,22 @@ module.exports = function (alchemy) {
                     },
                 },
 
-                system('State', 200), arrow(245, 325, 'up'), arrow(275, 325, 'down'),
+                system('State', 200, null, 'background'),
+                arrow(245, 325, 'up', null, 'background'),
+                arrow(275, 325, 'down', null, 'background'),
 
-                system('HTML', 355), arrow(415, 325, 'down'), arrow(415, 525, 'down'),
+                system('HTML', 355, null, 'background'),
+                arrow(415, 325, 'down', null, 'background'),
+                arrow(415, 525, 'down', null, 'background'),
 
-                system('CSS', 510), arrow(570, 325, 'down'), arrow(570, 525, 'down'),
+                system('CSS', 510),
+                arrow(570, 325, 'down'),
+                arrow(570, 525, 'down'),
 
-                system('Event', 665), arrow(710, 325, 'up'), arrow(740, 325, 'down'), arrow(725, 525, 'up'),
+                system('Event', 665, null, 'background'),
+                arrow(710, 325, 'up', null, 'background'),
+                arrow(740, 325, 'down', null, 'background'),
+                arrow(725, 525, 'up', null, 'background'),
 
                 {
                     type: 'core.entities.Box',
@@ -123,7 +133,7 @@ module.exports = function (alchemy) {
                         w: 900,
                         h: 75,
                     }
-                }, arrow(0, 450, 'right', 'State'), arrow(800, 450, 'right', 'Events')]
+                }, arrow(0, 450, 'right', 'State', 'background'), arrow(800, 450, 'right', 'Events', 'background')]
             }]
         };
     });

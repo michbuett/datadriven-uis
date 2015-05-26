@@ -19,6 +19,11 @@ body {
     background-color: white;
 }
 
+.code-block .line:hover {
+    background-color: rgb(49, 47, 67);
+    color: white;
+}
+
 .background {
     opacity: .3;
 }
