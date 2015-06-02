@@ -10,7 +10,7 @@ module.exports = function (alchemy) {
                 type: 'core.entities.Text',
 
                 state: {
-                    text: 'Datadriven Interfaces'
+                    text: 'Datadriven User Interfaces'
                 },
 
                 css: {

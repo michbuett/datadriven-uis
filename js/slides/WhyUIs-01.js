@@ -7,7 +7,7 @@ module.exports = function (alchemy) {
             type: 'core.entities.Slide',
 
             state: {
-                title: 'Warum noch ein Ansatz für die Enwicklung von Obflächen?'
+                title: 'Warum noch ein Ansatz für die Enwicklung von Oberflächen?'
             },
         };
     });
