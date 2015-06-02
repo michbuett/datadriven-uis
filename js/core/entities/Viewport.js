@@ -41,34 +41,28 @@ module.exports = function (alchemy) {
             },
 
             events: {
-                contextmenu: {
-                    handler: function onContextMenu(event, state, message) {
-                        message.trigger('navigation:prev');
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
+                contextmenu: function onContextMenu(event, state, sendMsg) {
+                    sendMsg('navigation:prev');
+                    event.preventDefault();
+                    event.stopPropagation();
                 },
 
-                click: {
-                    handler: function onClick(event, state, message) {
-                        message.trigger('navigation:next');
-                    }
+                click: function onClick(event, state, sendMsg) {
+                    sendMsg('navigation:next');
                 },
 
-                keydown: {
-                    handler: function onKeypressed(event, state, message) {
-                        var key = event.which || event.keyCode;
-                        // console.log('onKeypressed', event, key);
+                keydown: function onKeypressed(event, state, sendMsg) {
+                    var key = event.which || event.keyCode;
+                    // console.log('onKeypressed', event, key);
 
-                        if (key === 37 || key === 27) { // [<], [ESC]
-                            message.trigger('navigation:prev');
-                            return;
-                        }
+                    if (key === 37 || key === 27 || key === 33) { // [<], [ESC], [PgUp]
+                        sendMsg('navigation:prev');
+                        return;
+                    }
 
-                        if (key === 39 || key === 13) { // [>], [RETURN]
-                            message.trigger('navigation:next');
-                            return;
-                        }
+                    if (key === 39 || key === 13 || key === 34) { // [>], [RETURN], [PgDown]
+                        sendMsg('navigation:next');
+                        return;
                     }
                 },
             },
