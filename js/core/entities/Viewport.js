@@ -16,7 +16,9 @@ module.exports = function (alchemy) {
                     return ctx.h('button#viewport', {
                         tabIndex: '1',
                         autofocus: '1',
-                    }, ctx.renderAllChildren());
+                    }, [
+                        ctx.h('span#email', 'michael.buettner@flyeralarm.com'),
+                    ].concat(ctx.renderAllChildren()));
                 }
             },
 
@@ -36,6 +38,12 @@ module.exports = function (alchemy) {
 
                     '#viewport:focus': {
                         'box-shadow': 'inset 0 0 10px white',
+                    },
+
+                    '#email': {
+                        position: 'absolute',
+                        bottom: '20px',
+                        right: '20px',
                     }
                 }
             },

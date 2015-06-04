@@ -9,6 +9,11 @@ body {
     font-size: 45px;
 }
 
+#email {
+    font-size: 25px;
+    opacity: .5;
+}
+
 .arrow, .box, .entity {
     color: rgb(34, 32, 52);
     font-family: monospace;

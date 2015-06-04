@@ -7,7 +7,7 @@ module.exports = function (alchemy) {
             type: 'core.entities.Slide',
 
             state: {
-                title: 'Wer ist Michael Büttner?'
+                title: 'Michael Büttner'
             },
 
             children: [{
