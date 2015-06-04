@@ -133,7 +133,7 @@ module.exports = function (alchemy) {
                         w: 900,
                         h: 75,
                     }
-                }, arrow(0, 450, 'right', 'State', 'background'), arrow(800, 450, 'right', 'Events')]
+                }, arrow(0, 450, 'right', 'State', 'background'), arrow(800, 450, 'right', 'Message')]
             }]
         };
     });

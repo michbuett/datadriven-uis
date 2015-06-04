@@ -28,7 +28,7 @@ module.exports = function (alchemy) {
 
                 '.linenumber': {
                     width: '75px',
-                    opacity: '.3',
+                    opacity: '.5',
                     'text-align': 'right',
                 },
 

@@ -54,7 +54,7 @@ module.exports = function (alchemy) {
                     type: 'core.entities.Arrow',
                     state: {
                         dir: 'right',
-                        text: 'Events',
+                        text: 'Message',
                         x: 400,
                         y: 400,
                     }

@@ -51,7 +51,7 @@ module.exports = function (alchemy) {
                         '.slide-inner': {
                             width: '100%',
                             display: 'table-cell',
-                            transition: 'opacity 0.3s ease-in-out',
+                            transition: 'opacity 0.2s ease-in-out',
                             'vertical-align': 'middle',
                         },
 
