@@ -32,6 +32,7 @@ module.exports = function (alchemy) {
         'slides.Testing-UI-02',
         'slides.Testing-UI-03',
         'slides.Iceberg',
+        'slides.FurtherInfos',
         'slides.Questions',
     ];
 
