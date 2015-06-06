@@ -13,26 +13,38 @@ module.exports = function (alchemy) {
             children: [{
                 vdom: {
                     renderer: function (ctx) {
-                        return ctx.h('div#speaker-img');
-                    }
+                        return ctx.h('div#' + ctx.entityId, null, [
+                            ctx.h('ul', [
+                                ctx.h('li', 'Familienvater'),
+                                ctx.h('li', 'Begeisterter Javascript-Entwickler'),
+                                ctx.h('li', 'Verfechter agiler Entwicklung'),
+                                ctx.h('li', 'Langjährige Erfahrung mit Webprojekten'),
+                            ])
+                        ]);
+                    },
                 },
 
                 css: {
-                    typeRules: {
-                        '#speaker-img': {
-                            width: '100%',
-                            height: '500px',
-                            background: 'url(img/speaker.png) right center no-repeat',
-                            margin: '20px 0',
+                    entityRules: {
+                        width: '1020px',
+                        height: '600px',
+                        margin: '0 auto',
+                        position: 'relative',
+                        background: 'url(img/speaker.png) right center no-repeat',
+
+                        ul: {
+                            top: '70px',
+                            width: '500px',
+                            position: 'relative',
+                            'text-align': 'left',
                         },
+
+                        li: {
+                            margin: '30px 10px',
+                        }
                     },
-                },
-            }, {
-                type: 'core.entities.Text',
-                state: {
-                    text: 'Langjährige Erfahrung mit Webprojekten ◆ JavaScript-Begeisterter ◆ Verfechter agiler Entwicklung'
-                },
-            }]
+                }
+            }],
         };
     });
 };

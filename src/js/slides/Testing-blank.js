@@ -7,7 +7,7 @@ module.exports = function (alchemy) {
             type: 'core.entities.Slide',
 
             state: {
-                title: 'Testing'
+                title: 'Die Vorteile - Testing'
             },
         };
     });
