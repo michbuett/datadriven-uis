@@ -5,7 +5,7 @@
 
     alchemy.heatUp({
         path: {
-            alchemy: '../support/alchemy/lib',
+            alchemy: '../node_modules/alchemy.js/lib',
             core: 'js/core',
             slides: 'js/slides',
         },

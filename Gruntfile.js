@@ -21,7 +21,6 @@ module.exports = function (grunt) {
 
             src: [
                 'package.json',
-                'support/alchemy/lib/**/*',
                 'node_modules/alchemy.js/lib/**/*',
                 'src/**/*',
             ]
