@@ -1,0 +1,26 @@
+{
+  "name": "datadriven-uis",
+  "author": "Michael Büttner <michbuett@gmx.de>",
+  "description": "The slides for my presentation at the IPC 2015 in Berlin",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michbuett/datadriven-uis.git"
+  },
+  "main": "src/index.html",
+  "window": {
+    "min_width": 1024,
+    "min_height": 768,
+    "position": "center",
+    "toolbar": false,
+    "frame": true
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-node-webkit-builder": "^1.0.2"
+  },
+  "dependencies": {
+    "alchemy.js": "^0.4.3"
+  }
+}
