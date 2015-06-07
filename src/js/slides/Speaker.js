@@ -33,14 +33,14 @@ module.exports = function (alchemy) {
                         background: 'url(img/speaker.png) right center no-repeat',
 
                         ul: {
-                            top: '70px',
+                            top: '55px',
                             width: '500px',
                             position: 'relative',
                             'text-align': 'left',
                         },
 
                         li: {
-                            margin: '30px 10px',
+                            margin: '35px 10px',
                         }
                     },
                 }

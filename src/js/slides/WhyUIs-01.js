@@ -7,7 +7,7 @@ module.exports = function (alchemy) {
             type: 'core.entities.Slide',
 
             state: {
-                title: 'Warum noch ein Ansatz für die Enwicklung von Oberflächen?'
+                title: 'Warum sollte man sich überhaupt um die UI-Entwicklung Gedanken machen?'
             },
         };
     });
